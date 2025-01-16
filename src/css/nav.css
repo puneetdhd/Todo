@@ -1,0 +1,48 @@
+.container {
+    position: sticky; 
+    top: 0;
+    z-index: 100; 
+      min-height: 66px;
+      background: rgb(250, 249, 249);
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px;
+      gap: 24px;
+    }
+    
+    .nav a, 
+    .nav button {
+      font-size: 14px;
+      text-decoration: none;
+      color: black;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .nav a:hover,
+    .nav button:hover {
+      opacity: 0.7;
+    }
+    
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+    }
+    
+    .hero h1 {
+      font-size: 128px;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+    .component {
+      transition: transform .3s ease-in-out;
+    }
+    
+    
