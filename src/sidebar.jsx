@@ -10,7 +10,7 @@ export default function CategoriesSidebar({click,setClick}) {
   }
 
   return (
-    <>
+    <div className='sideb'>
       {/* Overlay when sidebar is open on mobile */}
       {isOpen && (
         <div 
@@ -44,7 +44,7 @@ export default function CategoriesSidebar({click,setClick}) {
             top: 0;
             left: 0;
             width: 250px;
-            height: 100vh;
+            height: 952px;
             background: white;
             padding: 20px;
             border-right: 1px solid #eee;
@@ -125,9 +125,13 @@ export default function CategoriesSidebar({click,setClick}) {
             .sidebar {
               box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
             }
+            .sideb{
+              transition: transform .3s ease-in-out;
+              height: 50px;
+            }
           }
         `}</style>
       </div>
-    </>
+    </div>
   )
 }
