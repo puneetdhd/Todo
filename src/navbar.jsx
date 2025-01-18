@@ -52,13 +52,13 @@ export default function Navbar() {
         
         style={{ flex: '0 1 auto', 
            
-            backgroundColor: '#f0f0f0', // Set background color
-            color: '#333',             // Set text color
-            border: '1px solid black',  // Set border color
+            backgroundColor: '#f0f0f0',   // Set background color
+            color: '#333',                // Set text color
+            border: '1px solid black',    // Set border color
             padding: '10px',
             borderRadius: '1000px',
-            width: '500px',     // Set height for the input
-            fontSize: '16px',   // Adjust text size
+            width: '500px',               // Set height for the input
+            fontSize: '16px',             // Adjust text size
   
     
          }}

@@ -1,4 +1,4 @@
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 import { useState } from 'react'
 
 export default function CategoriesSidebar({click,setClick}) {
@@ -31,11 +31,28 @@ export default function CategoriesSidebar({click,setClick}) {
           </button>
         </div>
         <nav>
+          <div>
           <ul>
-            <li><a href="#">Fashion</a></li>
-            <li><a href="#">Accessories</a></li>
-            <li><a href="#">Home Decor</a></li>
+            <li><a href="#">All Tasks</a></li>
+            <li><a href="#">Today</a></li>
+            <li><a href="#">Important</a></li>
+            <li><a href="#">Planned</a></li>
+            <li><a href="#">Assigned To Me</a></li>
+
           </ul>
+          </div>
+          
+          <br/>
+
+          <div>
+            <ul>
+          <li><a href="#">Add list</a></li>
+          </ul>
+          </div>
+
+          <div>
+          {/* circular chart */}
+          </div>
         </nav>
 
         <style jsx>{`
@@ -44,7 +61,7 @@ export default function CategoriesSidebar({click,setClick}) {
             top: 0;
             left: 0;
             width: 250px;
-            height: 952px;
+            height: 100vh;
             background: white;
             padding: 20px;
             border-right: 1px solid #eee;
