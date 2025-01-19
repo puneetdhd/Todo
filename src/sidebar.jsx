@@ -8,7 +8,7 @@ export default function CategoriesSidebar({click,setClick}) {
     setClick(false);
     setIsOpen(false);
   }
-
+c
   return (
     <div className='sideb'>
       {/* Overlay when sidebar is open on mobile */}
@@ -42,6 +42,8 @@ export default function CategoriesSidebar({click,setClick}) {
           </ul>
           </div>
           
+          <br/>
+          <hr/>
           <br/>
 
           <div>
