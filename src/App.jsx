@@ -4,12 +4,13 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Sidebar from './sidebar'
 import Navbar from './Navbar'
+import TodoList from './TodoInput'
 
 function App() {
   return (
     <>
      <Navbar/>
-     <h1>Todo</h1>
+    <TodoList/>
     </>
   )
 }
