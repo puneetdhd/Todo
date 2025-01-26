@@ -1,90 +1,123 @@
-"use client"
-
 import React, { useState } from "react"
 import { Bell, RotateCcw, Calendar, Star } from "lucide-react"
-import { Button } from "./components/ui/button"
-import { Checkbox } from "./components/ui/checkbox"
 
-function TodoList() {
-  const [tasks, setTasks] = useState([
+const TodoList = () => {
+  const [todos, setTodos] = useState([
     { id: 1, text: "Buy groceries", completed: false, starred: false },
-    { id: 2, text: "Finish project report", completed: false, starred: true },
+    { id: 2, text: "Finish project report", completed: false, starred: false },
     { id: 3, text: "Call the bank", completed: false, starred: false },
     { id: 4, text: "Schedule dentist appointment", completed: false, starred: false },
     { id: 5, text: "Plan weekend trip", completed: false, starred: false },
     { id: 6, text: "Read a book", completed: true, starred: false },
     { id: 7, text: "Clean the house", completed: true, starred: false },
+    { id: 8, text: "Prepare presentation", completed: true, starred: false },
+    { id: 9, text: "Update blog", completed: true, starred: false },
   ])
+  const [newTask, setNewTask] = useState("")
 
-  const toggleComplete = (taskId) => {
-    setTasks(tasks.map((task) => (task.id === taskId ? { ...task, completed: !task.completed } : task)))
+  const addTodo = () => {
+    if (newTask.trim()) {
+      setTodos([...todos, { id: Date.now(), text: newTask, completed: false, starred: false }])
+      setNewTask("")
+    }
   }
 
-  const toggleStar = (taskId) => {
-    setTasks(tasks.map((task) => (task.id === taskId ? { ...task, starred: !task.starred } : task)))
+  const toggleComplete = (id) => {
+    setTodos(todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)))
+  }
+
+  const toggleStar = (id) => {
+    setTodos(todos.map((todo) => (todo.id === id ? { ...todo, starred: !todo.starred } : todo)))
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 p-6">
-      <div className="max-w-2xl mx-auto">
-        <div className="mb-6">
-          <h2 className="text-xl mb-4">Add A Task</h2>
-          <div className="flex items-center gap-4 mb-4">
-            <Bell className="w-5 h-5 text-zinc-400" />
-            <RotateCcw className="w-5 h-5 text-zinc-400" />
-            <Calendar className="w-5 h-5 text-zinc-400" />
-            <div className="ml-auto">
-              <Button className="bg-green-600 hover:bg-green-700 text-white">ADD TASK</Button>
-            </div>
-          </div>
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#1c1c1c",
+        color: "white",
+        padding: "1rem",
+        maxWidth: "32rem",
+        margin: "0 auto",
+      }}
+    >
+      <h1 style={{ fontSize: "1.25rem", marginBottom: "1.5rem" }}>To Do</h1>
+      <div style={{ marginBottom: "2rem" }}>
+        <h2 style={{ fontSize: "1.125rem", marginBottom: "1rem" }}>Add A Task</h2>
+        <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
+          <Bell size={20} color="#9ca3af" />
+          <RotateCcw size={20} color="#9ca3af" />
+          <Calendar size={20} color="#9ca3af" />
         </div>
-
-        <div className="space-y-4">
-          {tasks
-            .filter((task) => !task.completed)
-            .map((task) => (
-              <div key={task.id} className="flex items-center gap-3">
-                <Checkbox
-                  checked={task.completed}
-                  onChange={() => toggleComplete(task.id)}
-                  className="border-zinc-600"
-                />
-                <span className="flex-1">{task.text}</span>
-                <Star
-                  className={`w-5 h-5 cursor-pointer ${task.starred ? "fill-current text-white" : "text-zinc-400"}`}
-                  onClick={() => toggleStar(task.id)}
-                />
-              </div>
-            ))}
+        <div style={{ display: "flex", gap: "0.5rem" }}>
+          <input
+            type="text"
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+            placeholder="Enter a new task"
+            style={{
+              flex: 1,
+              padding: "0.5rem",
+              backgroundColor: "#27272a",
+              border: "1px solid #3f3f46",
+              borderRadius: "0.25rem",
+              color: "white",
+            }}
+          />
+          <button
+            onClick={addTodo}
+            style={{
+              padding: "0.5rem 1rem",
+              backgroundColor: "#22c55e",
+              color: "white",
+              border: "none",
+              borderRadius: "0.25rem",
+              cursor: "pointer",
+            }}
+          >
+            ADD TASK
+          </button>
         </div>
-
-        {tasks.some((task) => task.completed) && (
-          <div className="mt-8">
-            <h3 className="text-sm text-zinc-500 mb-4">Completed</h3>
-            <div className="space-y-4">
-              {tasks
-                .filter((task) => task.completed)
-                .map((task) => (
-                  <div key={task.id} className="flex items-center gap-3">
-                    <Checkbox
-                      checked={task.completed}
-                      onChange={() => toggleComplete(task.id)}
-                      className="border-zinc-600 bg-green-600"
-                    />
-                    <span className="flex-1 text-zinc-500">{task.text}</span>
-                    <Star
-                      className={`w-5 h-5 cursor-pointer ${task.starred ? "fill-current text-white" : "text-zinc-400"}`}
-                      onClick={() => toggleStar(task.id)}
-                    />
-                  </div>
-                ))}
+      </div>
+      <div>
+        {todos.map((todo) => (
+          <div
+            key={todo.id}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "0.5rem",
+              marginBottom: "0.5rem",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+              <input
+                type="checkbox"
+                checked={todo.completed}
+                onChange={() => toggleComplete(todo.id)}
+                style={{ width: "1.25rem", height: "1.25rem" }}
+              />
+              <span
+                style={{
+                  textDecoration: todo.completed ? "line-through" : "none",
+                  color: todo.completed ? "#6b7280" : "white",
+                }}
+              >
+                {todo.text}
+              </span>
             </div>
+            <button
+              onClick={() => toggleStar(todo.id)}
+              style={{ background: "none", border: "none", cursor: "pointer" }}
+            >
+              <Star size={20} color={todo.starred ? "#fbbf24" : "#9ca3af"} fill={todo.starred ? "#fbbf24" : "none"} />
+            </button>
           </div>
-        )}
+        ))}
       </div>
     </div>
   )
 }
 
 export default TodoList
-
