@@ -34,8 +34,8 @@ const TodoList = () => {
     <div
       style={{
         minHeight: "100vh",
-        backgroundColor: "#1c1c1c",
-        color: "white",
+        backgroundColor: "#Ffffff",
+        color: "#1c1c1c",
         padding: "1rem",
         maxWidth: "32rem",
         margin: "0 auto",
@@ -58,7 +58,7 @@ const TodoList = () => {
             style={{
               flex: 1,
               padding: "0.5rem",
-              backgroundColor: "#27272a",
+              backgroundColor: "#Ffffff",
               border: "1px solid #3f3f46",
               borderRadius: "0.25rem",
               color: "white",
@@ -69,7 +69,7 @@ const TodoList = () => {
             style={{
               padding: "0.5rem 1rem",
               backgroundColor: "#22c55e",
-              color: "white",
+              color: "1c1c1c",
               border: "none",
               borderRadius: "0.25rem",
               cursor: "pointer",
