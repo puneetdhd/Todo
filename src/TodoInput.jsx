@@ -69,7 +69,7 @@ const TodoList = () => {
             style={{
               padding: "0.5rem 1rem",
               backgroundColor: "#22c55e",
-              color: "1c1c1c",
+              color: "#1c1c1c",
               border: "none",
               borderRadius: "0.25rem",
               cursor: "pointer",
@@ -101,7 +101,7 @@ const TodoList = () => {
               <span
                 style={{
                   textDecoration: todo.completed ? "line-through" : "none",
-                  color: todo.completed ? "#6b7280" : "white",
+                  color: todo.completed ? "#6b7280" : "#1c1c1c",
                 }}
               >
                 {todo.text}
