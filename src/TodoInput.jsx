@@ -61,7 +61,7 @@ const TodoList = () => {
               backgroundColor: "#Ffffff",
               border: "1px solid #3f3f46",
               borderRadius: "0.25rem",
-              color: "white",
+              color: "#1c1c1c",
             }}
           />
           <button
